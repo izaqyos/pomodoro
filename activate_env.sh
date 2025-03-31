@@ -1,38 +1,29 @@
 #!/bin/bash
 
-# This script should be sourced, not executed
-# Usage: source activate_env.sh
+# Colors for output
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+BLUE='\033[0;34m'
 
-# Check if conda is installed
-if ! command -v conda &> /dev/null
-then
-    echo "Conda is not installed. Please install Miniconda or Anaconda first."
-    echo "Visit https://docs.conda.io/en/latest/miniconda.html for installation instructions."
-    return 1
-fi
+echo -e "${BLUE}🍅 Activating Pomodoro environment...${NC}"
 
-# Get the directory of the script
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-cd "$SCRIPT_DIR"
+# Initialize conda for shell script
+source ~/miniconda3/etc/profile.d/conda.sh
 
-# Create conda environment if it doesn't exist
-if ! conda env list | grep -q "pomodoro"; then
-    echo "Creating new conda environment: pomodoro"
+# Check if pomodoro environment exists
+if conda env list | grep -q "pomodoro"; then
+    echo -e "${GREEN}✓ Activating existing pomodoro environment${NC}"
+    conda activate pomodoro
+else
+    echo -e "${BLUE}Creating new pomodoro environment...${NC}"
     conda create -n pomodoro python=3.10 -y
+    conda activate pomodoro
+    echo -e "${BLUE}Installing requirements...${NC}"
+    pip install -r requirements/dev.txt
 fi
 
-# Activate the conda environment
-conda activate pomodoro
+echo -e "${GREEN}✓ Pomodoro environment is ready!${NC}"
 
-# Install pytest and other testing requirements
-conda install -y pytest pytest-cov
-
-# Install other requirements
-pip install -r requirements/dev.txt
-
-# Install the package in development mode
-pip install -e .
-
-echo "Conda environment 'pomodoro' is now active and requirements are installed"
-
-echo "Environment activated! You can now run the app with: streamlit run app.py" 
+# Keep the shell running with the activated environment
+exec $SHELL 

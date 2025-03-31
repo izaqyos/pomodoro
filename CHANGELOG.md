@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2024-03-XX
+
+### Changed
+- Simplified project structure by removing nested pomodoro directory
+- Streamlined conda environment activation script
+- Updated README with comprehensive Pomodoro technique explanation
+- Improved task management documentation
+- Fixed Python module import issues
+
+### Added
+- Quick start guide in README
+- Detailed task management instructions
+- Project screenshot in documentation
+- Better development setup instructions
+
+### Fixed
+- Module import errors with proper package structure
+- Conda environment activation issues
+- Documentation structure and clarity
+- Package installation process
+
 ## [1.1.0] - 2024-03-XX
 
 ### Added
