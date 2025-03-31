@@ -89,7 +89,7 @@ streamlit run src/main.py --server.runOnSave=true
 ## Development
 
 ### Project Structure
-
+```bash
 .
 ├── src/
 │   ├── core/
@@ -123,7 +123,6 @@ streamlit run src/main.py --server.runOnSave=true
 ├── pyproject.toml
 ├── run.sh
 └── activate_env.sh
-
-## Project Structure
+```
 
 
