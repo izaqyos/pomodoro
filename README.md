@@ -124,4 +124,6 @@ streamlit run src/main.py --server.runOnSave=true
 ├── run.sh
 └── activate_env.sh
 
+## Project Structure
+
 
