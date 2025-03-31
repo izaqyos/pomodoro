@@ -1,0 +1,5 @@
+# Conda
+.conda/
+conda-env/
+
+[rest of .gitignore remains the same...] 
